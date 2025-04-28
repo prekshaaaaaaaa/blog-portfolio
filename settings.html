@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogger Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F5F5F5;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .menu-bar {
+            background-color: white;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .menu-tooltip {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 10px;
+            background-color: black;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        .menu-bar button {
+            background-color: white;
+            border: 0;
+            position: relative;
+        }
+
+        .menu-bar button:hover + .menu-tooltip {
+            display: block;
+        }
+
+        .new-post-btn {
+            background-color: orange;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 50px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .new-post-btn a {
+            color: orange;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+
+        .new-post-btn:hover {
+            background-color: darkorange;
+            transform: scale(1.05);
+        }
+
+        .menu-buttons {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20%;
+            height: 100%;
+            background-color: white;
+            padding: 20px;
+            overflow-y: auto;
+            z-index: 2;
+            border-right: 2px solid black;
+        }
+
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .menu-buttons button {
+            display: block;
+            background: none;
+            border: none;
+            padding: 10px;
+            text-align: left;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .menu-buttons button:hover {
+            background-color: #F0F0F0;
+        }
+
+        .content {
+            transition: margin-left 0.3s;
+            margin-left: 0;
+            padding: 20px;
+        }
+
+        .content.shifted {
+            margin-left: 30%;
+        }
+
+        /* Styling for the list */
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 8px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-bar">
+        <button onclick="toggleMenu()">☰</button>
+        <div class="menu-tooltip">Menu Box</div>
+    </div>
+
+    <div id="menuButtons" class="menu-buttons">
+        <div class="menu-header">
+            <span>Blogger Menu</span>
+        </div>
+        <button class="new-post-btn"><a href="createpost.html">+ NEW POST</a></button>
+        <button onclick="window.location.href='main page.html'">📋 Posts</button>
+        <button >💬 Comments</button>
+        <button onclick="window.location.href='settings.html'">⚙️ Settings</button>
+    </div>
+
+    <div class="content" id="content">
+        <!-- Replaced comment box with the list -->
+        <ul>
+            <li>Permissions</li>
+            <li>Blog admins and authors</li>
+            <li>Pending author invites</li>
+            <li>No pending invites</li>
+            <li>Invite more authors</li>
+            <li>Reader access</li>
+            <li>Public</li>
+            <li>Custom readers</li>
+            <li>No custom readers</li>
+            <li>Pending custom reader invites</li>
+            <li>No pending invites</li>
+            <li>Invite more readers</li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menuButtons');
+            const content = document.getElementById('content');
+
+            if (menu.style.display === 'none' || menu.style.display === '') {
+                menu.style.display = 'block';
+                content.classList.add('shifted');
+            } else {
+                menu.style.display = 'none';
+                content.classList.remove('shifted');
+            }
+        }
+    </script>
+</body>
+</html>

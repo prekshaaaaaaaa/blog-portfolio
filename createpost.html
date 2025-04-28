@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogger Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .editor-container {
+            display: flex;
+            height: 100%;
+        }
+
+        .editor-content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #f1f1f1;
+        }
+
+        .editor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: white;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .post-settings {
+            padding: 20px;
+            background-color: #f1f1f1;
+            width: 300px;
+            border-left: 1px solid #ddd;
+        }
+
+        .post-settings label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .post-settings input, .post-settings select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        .post-title {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            outline: none;
+        }
+
+        .post-body {
+            width: 100%;
+            height: 200px;
+            border: 1px solid #ddd;
+            background-color: white;
+            padding: 10px;
+            outline: none;
+        }
+
+        .publishButton {
+            background-color: orange;
+            padding: 8px 16px;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .comment-display {
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        .comment-display .post {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+
+        .comment-display .post h3 {
+            margin: 0;
+            color: #333;
+            text-align: center;
+        }
+
+        .comment-display .post p {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .comment-display .post .post-date {
+            text-align: center;
+            font-style: italic;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="editor-header">
+        <input type="text" id="postTitle" class="post-title" placeholder="Enter Title" />
+    </div>
+    <div class="editor-container">
+        <div class="editor-content">
+            <textarea id="commentInput" class="post-body" rows="4" placeholder="Write your mind here..." style="width: 100%;"></textarea>
+        </div>
+        <div class="post-settings">
+            <label>Location</label>
+            <input type="text" placeholder="Enter location">
+
+            <label>Published on</label>
+            <input type="text" id="publishedOn" readonly>
+
+            <label>Notes</label>
+            <input type="text" placeholder="Enter notes">
+            
+            <button onclick="postComment()" class="publishButton">Publish</button>
+        </div>
+    </div>
+
+    <div class="comment-display" id="commentDisplay"></div>
+    
+    
+    <script>
+ 
+    function postComment() {
+    const postTitle = document.getElementById('postTitle').value;
+    const commentInput = document.getElementById('commentInput').value;
+    const currentDate = new Date().toLocaleString(); // Get the current date and time
+
+    // Check if both title and comment are not empty
+    if (postTitle.trim() !== "" && commentInput.trim() !== "") {
+        // Create a post object
+        const post = {
+            title: postTitle,
+            content: commentInput,
+            timestamp: currentDate,
+            isPublished: true
+        };
+
+        // Get the existing posts from localStorage or initialize an empty array
+        let posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+        // Add the new post to the posts array
+        posts.push(post);
+
+        // Save the updated posts array back to localStorage
+        localStorage.setItem('posts', JSON.stringify(posts));
+
+        // Clear the inputs
+        document.getElementById('postTitle').value = "";
+        document.getElementById('commentInput').value = "";
+
+        // Redirect to the posts page (second page)
+        window.location.href = 'main page.html'; // Replace with the name of the second page
+    } else {
+        alert("Both title and blog content are required to publish.");
+    }
+}
+function toggleMenu() {
+            const menu = document.getElementById('menuButtons');
+            const content = document.getElementById('content');
+
+            if (menu.style.display === 'none' || menu.style.display === '') {
+                menu.style.display = 'block';
+                content.classList.add('shifted');
+            } else {
+                menu.style.display = 'none';
+                content.classList.remove('shifted');
+            }
+        }
+
+
+    window.onload = function() {
+    const editingPostId = localStorage.getItem('editingPostId');
+    const titleInput = document.getElementById('title');    // your title input id
+    const contentInput = document.getElementById('content'); // your content input id
+
+    if (editingPostId) {
+        const posts = JSON.parse(localStorage.getItem('posts')) || [];
+        const postToEdit = posts.find(post => post.id === editingPostId);
+
+        if (postToEdit) {
+            titleInput.value = postToEdit.title;
+            contentInput.value = postToEdit.content;
+        }
+    }
+};
+
+// On Save Button Click
+function savePost() {
+    const title = document.getElementById('title').value;
+    const content = document.getElementById('content').value;
+    const editingPostId = localStorage.getItem('editingPostId');
+
+    let posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+    if (editingPostId) {
+        // Edit Existing Post
+        const postIndex = posts.findIndex(post => post.id === editingPostId);
+        if (postIndex !== -1) {
+            posts[postIndex].title = title;
+            posts[postIndex].content = content;
+        }
+        localStorage.removeItem('editingPostId');  // clear after editing
+    } else {
+        // Create New Post
+        const newPost = {
+            id:Date().now().toString(),   // unique id
+            title: title,
+            content: content
+        };
+        posts.push(newPost);
+    }
+
+    localStorage.setItem('posts', JSON.stringify(posts));
+    window.location.href = 'main page.html';
+}
+    window.onload = function() {
+        const editIndex = localStorage.getItem('editIndex');
+        const posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+        if (editIndex !== null && posts[editIndex]) {
+            const post = posts[editIndex];
+
+            // Fill the form fields with the post data
+            document.getElementById('title').value = post.title;
+            document.getElementById('content').value = post.content;
+        }
+    };
+
+    function savePost() {
+        const title = document.getElementById('title').value;
+        const content = document.getElementById('content').value;
+
+        let posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+        const editIndex = localStorage.getItem('editIndex');
+
+        if (editIndex !== null && posts[editIndex]) {
+            // Editing an existing post
+            posts[editIndex].title = title;
+            posts[editIndex].content = content;
+            posts[editIndex].timestamp = new Date().toISOString();
+        } else {
+            // Creating a new post
+            posts.push({
+                title: title,
+                content: content,
+                isPublished: true,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        localStorage.setItem('posts', JSON.stringify(posts));
+        localStorage.removeItem('editIndex'); // Clear edit mode
+
+        window.location.href = 'main page.html'; // Go back to main page after saving
+    }
+    function formatDateTime() {
+    const now = new Date();
+    
+    // Get the components of the date and time
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // Adds leading zero for months < 10
+    const day = String(now.getDate()).padStart(2, '0'); // Adds leading zero for days < 10
+    const hours = String(now.getHours()).padStart(2, '0'); // Adds leading zero for hours < 10
+    const minutes = String(now.getMinutes()).padStart(2, '0'); // Adds leading zero for minutes < 10
+    const seconds = String(now.getSeconds()).padStart(2, '0'); // Adds leading zero for seconds < 10
+
+    // Format the date and time as: YYYY-MM-DD HH:MM:SS
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
+
+// On window load, update the "Published on" field with current date and time
+window.onload = function() {
+    const currentDateTime = formatDateTime();
+    document.getElementById('publishedOn').value = currentDateTime;
+};
+</script>
+
+   
+</body>
+</html>

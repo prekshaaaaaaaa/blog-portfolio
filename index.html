@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<head>
+    <link href="/public/index1.js">
+<style>
+    
+    body{
+        height: 900px;
+        margin:0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+    .header1{
+        height: 70vh;
+        opacity: 1.0;
+        border: none;
+        text-align: right;
+        padding: 12px;
+
+    }
+    .shop{
+        color: rgb(240, 222, 222);
+        opacity: 1.0;
+        border: none;
+        text-align: right;
+        padding: 12px;
+
+        
+
+    }
+    .header1 a{
+        text-decoration: none;
+        list-style-type: none;
+        padding: 15px;
+        text-align: center;
+    }
+    .header1 a:hover{
+        
+        color:rgb(203, 195, 195);
+    }
+    .header1 ul{
+        padding: 0px;
+        margin: 0px;
+        list-style-type: none;
+
+    }
+    .header1 li{
+        padding: 15px;
+
+    }
+    .head {
+      height: 100vh;
+      margin: 0;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 3s ease-in-out;
+      width: 70vh;
+    }
+    
+    .head1{
+        text-align: center;
+        color: aliceblue;
+    }
+    .box {
+        
+      height: 30px;
+      border: 2px solid orange; 
+      border-radius: 5px 5px ; 
+      padding: 5px 15px; 
+      background-color: orange; 
+      color: white; 
+      font-size: 16px; 
+      cursor: pointer; 
+      transition: background-color 0.3s ease; /* Smooth transition on hover */
+    }
+    .box:hover {
+      background-color: lightorange; 
+      color: white;
+    }
+    .head2{
+        background-image: url('7.png');
+        height: 690px;
+        margin-top: 270px;
+       
+      
+    }
+    h2{
+       
+        color: aliceblue;
+        text-align: left;
+        font-size: 40px;
+        padding-top: 250px ;
+        padding-left:50px;
+
+       
+        
+    }
+    p.para1{
+        color: aliceblue;
+        text-align: left;
+        font-size: 20px;
+        padding-left: 50px;
+    }
+   
+   
+    .head3,.head5,.head6 {
+        background-image: url('public/8.png');
+        height: 700px;
+        
+        }
+        
+        .head3 h2 ,.head5 h2,.head6 h2{
+            font-size: 48px;
+            margin:0;
+           
+        }
+
+        .head3 p ,.head5 p,.head6 p{
+            font-size: 20px;
+            margin-top: 10px;
+            padding-left: 50px;
+            color: white;
+            align-items: left;
+            max-width: 400px;
+           
+        }
+    
+        .head4 {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: flex-end; 
+    padding: 150px; 
+    color: white; 
+    text-align: right; 
+    background-image: url('public/9.png'); 
+    height: 570px;
+    margin: 0; 
+}
+
+.head4 h2 {
+    font-size: 48px; 
+    margin: 0; 
+    text-align: right;
+}
+
+.head4 p {
+    font-size: 18px; 
+    margin-top: 10px; 
+    max-width: 400px; 
+    color: white; 
+    text-align: right; 
+}
+
+    .head5{
+        background-image: url('public/4.png');
+        height: 800px;
+        
+    }
+    .head6{
+        background-image: url('public/5.png');
+        height: 800px;
+        
+    }
+    .head7 {
+            background-image: url('public/6.png');
+            padding: 100px;
+            text-align: center;
+            color: white;
+            position: relative;
+            
+        }
+
+        .head7 h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            padding-left: 300px;
+        }
+
+        .head7 p {
+            font-size: 20px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        .head7 button {
+            background-color: #1A73E8;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+    
+    h5{
+        height: 40px;
+        font-size: 20px;
+        color: aliceblue;
+    }
+    header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+        
+        .shop1, .create {
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+        
+        .shop1 {
+            background-color: white;
+            color: black;
+            border: 0px ;
+            text-decoration: none;
+        }
+        .shop1:hover{
+            color: orange;
+        }
+        .create {
+            background-color: orange;
+            color: white;
+            border: 1px solid orange;
+            border-radius: 2px;
+            text-decoration: none;
+
+        }
+        .create:hover{
+            background-color: rgb(237, 122, 34);
+        }
+        h1{
+            color: aliceblue;
+        }
+        @media(max-width:700px){
+            .head1{
+                background-image:;
+            }
+            .head2{background-color: red;}
+        }
+</style>
+   
+</head>
+<body>
+    <div class="full">
+        <div class="container-sm"></div>
+        <div class="container-md"></div>
+        <div class="container-lg"></div>
+        <div class="container-xl"></div>
+        <div class="container-xxl"></div>  
+        
+
+     <header id="header">
+        <a href="SIGNUP.html" class="shop1">SIGN IN</a>
+        <a href="create.html" class="create">CREATE YOUR BLOG </a>
+    </header>
+    <div class="header1">
+    
+        <ul>
+           <a href="SIGNUP.html" class="shop">SIGN IN</a>
+        </ul> 
+     
+
+        <div class="head1">
+            <h1>Publish your passions, your way</h1>
+            <h5>create a unique and beautiful blog easily </h5>
+
+            <a href="create.html" class="box"><b>CREATE YOUR BLOG</b></a>
+        </div>
+    </div>
+
+    <div class="head2">
+         <h2>Choose the perfect design</h2>
+         <p class="para1">Create a beautiful blog that fits your style. Choose from a selection <br>of easy-to-use templates – all with flexible layouts and hundreds of<br> background images – or design something new.
+
+         </p>
+    </div>
+    <div class="head3">
+       <h2> Get a domain</h2>
+       <p>Give your blog the perfect home. Get a blogspot.com<br> domain or buy a custom domain with just a few clicks.</p>
+      
+       
+
+    </div>
+    <div class="head4">
+        <h2>Earn money</h2>
+        <p>Get paid for your hard work. Google AdSense can automatically display relevant targeted ads on your blog so that you can earn income by posting about your passion.</p>
+       
+    </div>
+    <div class="head5">
+        <h2>Know your audience</h2>
+        <p>Find out which posts are a hit with Blogger’s built-in analytics. You’ll see where your audience is coming from and what they’re interested in. You can even connect your blog directly to Google Analytics for a more detailed look.</p>
+
+    </div>
+    <div class="head6">
+        <h2>Hang onto your memories</h2>
+        <p>Save the moments that matter. Blogger lets you safely store thousands of posts, photos, and more with Google.</p>
+    </div>
+    <div class="head7">
+         <h2>Join millions of others</h2>
+         <p>Whether sharing your expertise, breaking news, or whatever’s on your mind, you’re in good company on Blogger. Sign up to discover why millions of people have published their passions here.
+         </p>
+         <a href="create.html" class="create">CREATE YOUR BLOG </a>
+    </div>
+   
+    
+
+
+
+<script>const images = [
+    'url("public/1.png")',
+    'url("public/2.png")',
+    'url("public/3.png")',
+    
+  ];
+  
+  let currentIndex = 0;
+
+  function changeBackgroundImage() {
+    document.body.style.backgroundImage = images[currentIndex];
+    currentIndex = (currentIndex + 1) % images.length;
+  }
+
+  // Change the background every 2 seconds
+  setInterval(changeBackgroundImage, 2000);
+  
+  // Set initial background image
+  changeBackgroundImage();
+  const header = document.getElementById('header');
+
+// Function to handle scrolling
+function handleScroll() {
+    if (window.scrollY > 700) {
+        header.style.top = '0'; // Show the header when scrolled more than 700px
+    } else {
+        header.style.top = '-300px'; // Hide the header when at the top of the page
+    }
+}
+
+// Hide the header initially when the page is loaded
+window.onload = () => {
+    if (header) {
+        header.style.top = '-300px';
+    }
+};
+
+window.addEventListener('scroll', handleScroll);
+
+
+</script>
+    
+</body>
