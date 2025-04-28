@@ -1,0 +1,237 @@
+body{
+        height: 900px;
+        margin:0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+    .header1{
+        height: 70vh;
+        opacity: 1.0;
+        border: none;
+        text-align: right;
+        padding: 12px;
+
+    }
+    .shop{
+        color: rgb(240, 222, 222);
+        opacity: 1.0;
+        border: none;
+        text-align: right;
+        padding: 12px;
+
+        
+
+    }
+    .header1 a{
+        text-decoration: none;
+        list-style-type: none;
+        padding: 15px;
+        text-align: center;
+    }
+    .header1 a:hover{
+        
+        color:rgb(203, 195, 195);
+    }
+    .header1 ul{
+        padding: 0px;
+        margin: 0px;
+        list-style-type: none;
+
+    }
+    .header1 li{
+        padding: 15px;
+
+    }
+    .head {
+      height: 100vh;
+      margin: 0;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 3s ease-in-out;
+      width: 70vh;
+    }
+    
+    .head1{
+        text-align: center;
+        color: aliceblue;
+    }
+    .box {
+        
+      height: 30px;
+      border: 2px solid orange; 
+      border-radius: 5px 5px ; 
+      padding: 5px 15px; 
+      background-color: orange; 
+      color: white; 
+      font-size: 16px; 
+      cursor: pointer; 
+      transition: background-color 0.3s ease; /* Smooth transition on hover */
+    }
+    .box:hover {
+      background-color: lightorange; 
+      color: white;
+    }
+    .head2{
+        background-image: url(/public/7.png);
+        height: 690px;
+        margin-top: 270px;
+       
+      
+    }
+    h2{
+       
+        color: aliceblue;
+        text-align: left;
+        font-size: 40px;
+        padding-top: 250px ;
+        padding-left:50px;
+
+       
+        
+    }
+    p.para1{
+        color: aliceblue;
+        text-align: left;
+        font-size: 20px;
+        padding-left: 50px;
+    }
+   
+   
+    .head3,.head5,.head6 {
+        background-image: url(public/8.png);
+        height: 700px;
+        
+        }
+        
+        .head3 h2 ,.head5 h2,.head6 h2{
+            font-size: 48px;
+            margin:0;
+           
+        }
+
+        .head3 p ,.head5 p,.head6 p{
+            font-size: 20px;
+            margin-top: 10px;
+            padding-left: 50px;
+            color: white;
+            align-items: left;
+            max-width: 400px;
+           
+        }
+    
+    .head4{
+        display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+            padding: 100px;
+            color: white;
+            text-align: right;
+            background-image:url(public/9.png);
+            height: 570px;
+            margin: 0;
+           
+    }
+        .head4 h2{
+            font-size: 48px;
+            margin: 0;
+            display: inline-block;
+            text-align: right;
+        }
+        .head4 p{
+            font-size: 18px;
+            margin-top: 10px;
+            max-width: 400px;
+            color: white;
+            text-align: right;
+        }
+    .head5{
+        background-image: url(public/4.png);
+        height: 800px;
+        
+    }
+    .head6{
+        background-image: url(public/5.png);
+        height: 800px;
+        
+    }
+    .head7 {
+            background-image: url(public/6.png);
+            padding: 100px;
+            text-align: center;
+            color: white;
+            position: relative;
+            
+        }
+
+        .head7 h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            padding-left: 300px;
+        }
+
+        .head7 p {
+            font-size: 20px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        .head7 button {
+            background-color: #1A73E8;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+    
+    h5{
+        height: 40px;
+        font-size: 20px;
+    }
+    header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+        
+        .shop1, .create {
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+        
+        .shop1 {
+            background-color: white;
+            color: black;
+            border: 0px ;
+            text-decoration: none;
+        }
+        .shop1:hover{
+            color: orange;
+        }
+        .create {
+            background-color: orange;
+            color: white;
+            border: 1px solid orange;
+            border-radius: 2px;
+            text-decoration: none;
+
+        }
+        .create:hover{
+            background-color: rgb(237, 122, 34);
+        }
